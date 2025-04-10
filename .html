@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>senex.clothing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Urbanist', sans-serif;
+      background: #0d0d0d;
+      color: #f1f1f1;
+      scroll-behavior: smooth;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #11001c, #1a0033);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(255, 0, 150, 0.3);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #ff00c8, 0 0 20px #ff00c8;
+    }
+
+    .logo span {
+      color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 600;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ff00cc;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1600185365483-26e9dd9eb8f6') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    .hero p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .hero button {
+      margin-top: 25px;
+      padding: 14px 28px;
+      border: none;
+      background: #ff00c8;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff00c8;
+      transition: 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* PRODUCT SECTION */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 60px 0 20px;
+      color: #00f0ff;
+      text-shadow: 0 0 8px #00f0ff;
+    }
+
+    .products {
+      display:"product-grid";
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+        
+    }
+
+    .product-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(255, 0, 200, 0.3);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .product-info button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #00fff7;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .product-info button:hover {
+      background: #fff;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #aaa;
+      font-size: 0.9rem;
+      background: #111;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">senex.<span>clothing</span></div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+        <img src="Imge/cover.jpg" alt="cover " width="400" height="350">
+      <h1> Sri lankas No.01 Mens clothing Site </h1>
+      <p>Where street meets soul. Designed for the bold.</p>
+      <button>Shop Now</button>
+    </div>
+  </section>
+
+  <h2 class="section-title" id="products">New Arrivals</h2>
+  <section class="products">
+    <div class="product-card">
+        <img src="Imge/galvin.jpg" alt=" mens " width="10" height="10">
+      <div class="product-info">
+        <h3> Mens </h3>
+        <button onclick="addToCart('Mens', 69)">Buy Now</button>
+
+
+      </div>
+    </div>
+    <div class="product-card">
+        <img src="Imge/qeen.jpg" alt="kelvin " width="10" height="10">
+      <div class="product-info">
+        <h3>T-Shirt</h3>
+        <button onclick="addToCart('T- Shirt', 69)">Buy Now</button>
+
+      </div>
+    </div>
+    <div class="product-card">
+        <img src="Imge/king.jpg" alt="king" width="10" height="10">
+      <div class="product-info">
+        <h3> Accessories </h3>
+        <button onclick="addToCart('Accessories', 69)">Buy Now</button>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> senex.clothing – All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+<!-- 🛒 Floating Cart Button -->
+<div class="cart-icon" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+  </div>
+  
+  <!-- 🧾 Cart Sidebar -->
+  <div class="cart-panel" id="cart-panel">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">
+      <strong>Total:</strong> $<span id="cart-total">0</span>
+    </div>
+    <button onclick="clearCart()">Clear Cart</button>
+  </div>
+  
+  <style>
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #00fff7;
+      color: #000;
+      padding: 10px 18px;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #00fff7;
+      z-index: 9999;
+    }
+  
+    .cart-panel {
+      
+      position: fixed;
+      right: -320px;
+      top: 0;
+      height: 100vh;
+      width: 300px;
+      background: #1a1a1a;
+      color: white;
+      padding: 20px;
+      box-shadow: -2px 0 20px rgba(0, 255, 255, 0.3);
+      transition: right 0.4s ease;
+      z-index: 9998;
+    }
+  
+    .cart-panel.open {
+      right: 0;
+    }
+  
+    .cart-panel h3 {
+      margin-top: 0;
+      color: #00f0ff;
+      text-shadow: 0 0 8px #00f0ff;
+    }
+  
+    #cart-items {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+  
+    #cart-items li {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 8px;
+    }
+  
+    .cart-total {
+      margin-top: 20px;
+    }
+  
+    .cart-panel button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      background: #ff0077;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  
+    .cart-panel button:hover {
+      background: #ff3399;
+    }
+    .cart-panel a button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+
+  </style>
+  <script>
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const grid = document.getElementById('product-grid');
+  
+    products.forEach(p => {
+      const card = document.createElement('div');
+      card.style.background = '#1a1a1a';
+      card.style.borderRadius = '12px';
+      card.style.padding = '20px';
+      card.style.textAlign = 'center';
+      card.innerHTML = `
+        <img src="${p.image}" alt="${p.name}" style="width: 100%; border-radius: 10px; margin-bottom: 15px;">
+        <h3 style="color: #00fff7;">${p.name}</h3>
+        <p style="color: #ccc;">${p.desc}</p>
+        <strong style="color: #00ff88;">$${p.price}</strong>
+        <br><br>
+        <button onclick="addToCart('${p.name}', ${p.price})" style="padding: 10px 15px; background: #00fff7; color: black; border: none; border-radius: 8px; cursor: pointer;">Buy Now</button>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
+  
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+    function updateCartUI() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+  
+      cartItems.innerHTML = '';
+      let total = 0;
+      let count = 0;
+  
+      cart.forEach((item, index) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+  
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${item.name} - $${item.price} x ${item.quantity}
+          <button onclick="changeQuantity(${index}, -1)">➖</button>
+          <button onclick="changeQuantity(${index}, 1)">➕</button>
+          <button onclick="removeFromCart(${index})">❌</button>
+        `;
+        cartItems.appendChild(li);
+      });
+  
+      cartCount.textContent = count;
+      cartTotal.textContent = total.toFixed(2);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+  
+    function addToCart(name, price) {
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      updateCartUI();
+    }
+  
+    function changeQuantity(index, delta) {
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+  
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+  
+    function clearCart() {
+      cart = [];
+      updateCartUI();
+    }
+  
+    function toggleCart() {
+      document.getElementById('cart-panel').classList.toggle('open');
+    }
+  
+    updateCartUI();
+  </script>
+  
+  
+</body>
+
+</html>
